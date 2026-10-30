@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1f6f4a">
+<meta name="description" content="Record sales and expenses offline and see today's profit.">
+<title>KasuwaBook</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <h1>KasuwaBook</h1>
+    <p class="date" id="today-label">Today</p>
+    <p class="net" id="net-status" hidden>Offline. Records still save on this phone.</p>
+  </div>
+</header>
+
+<main>
+  <section class="totals" aria-label="Today's totals">
+    <div class="tile"><span class="label">Sales</span><span class="value" id="total-sales">0</span></div>
+    <div class="tile"><span class="label">Expenses</span><span class="value" id="total-expenses">0</span></div>
+    <div class="tile profit" id="profit-tile"><span class="label" id="profit-label">Profit</span><span class="value" id="total-profit">0</span></div>
+  </section>
+
+  <form id="entry" class="entry" novalidate>
+    <div class="switch" role="radiogroup" aria-label="What are you recording?">
+      <label><input type="radio" name="type" value="sale" checked><span>Sale</span></label>
+      <label><input type="radio" name="type" value="expense"><span>Expense</span></label>
+    </div>
+    <label class="field">
+      <span id="amount-label">How much did you sell?</span>
+      <input id="amount" name="amount" inputmode="numeric" autocomplete="off" placeholder="3,500" aria-describedby="amount-error">
+    </label>
+    <p class="error" id="amount-error" role="alert" hidden></p>
+    <label class="field">
+      <span id="note-label">What did you sell? (optional)</span>
+      <input id="note" name="note" autocomplete="off" maxlength="80" placeholder="2 yards ankara">
+    </label>
+    <button type="submit" class="save" id="save">Save sale</button>
+  </form>
+
+  <section class="list" aria-labelledby="list-title">
+    <h2 id="list-title">Today's records</h2>
+    <ul id="records"></ul>
+    <p class="empty" id="empty">Nothing recorded today yet.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Records are saved on this phone only.</p>
+  <p>KasuwaBook is a fictional product, built for teaching from learners' tickets.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

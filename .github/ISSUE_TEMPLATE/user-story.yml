@@ -1,0 +1,55 @@
+name: User story
+description: Something a KasuwaBook user needs, and why. Written from the user's side of the screen.
+title: "[Story] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        KasuwaBook is a fictional product for teaching. Its users, and every number about them, are invented.
+        A story is a promise of a conversation: keep it short, then make the acceptance criteria testable.
+  - type: input
+    id: as_a
+    attributes:
+      label: As a …
+      description: A specific user type, not "the user". It tells the team whose world to picture.
+      placeholder: market trader with patchy mobile data
+    validations:
+      required: true
+  - type: input
+    id: i_want
+    attributes:
+      label: I want …
+      description: The capability, in the user's words. Not the button, not the database.
+      placeholder: to record a sale even when I'm offline
+    validations:
+      required: true
+  - type: input
+    id: so_that
+    attributes:
+      label: so that …
+      description: The outcome. It lets the team suggest a better way to reach it.
+      placeholder: I never lose track of what I sold during a busy day
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How you will accept or reject the change once it is live. One per line, each one testable on a phone.
+      placeholder: |
+        Given I have no mobile data, when I save a sale, then it appears in today's list.
+        Given I close and reopen the app, when I look at today's list, then the sale is still there.
+    validations:
+      required: true
+  - type: textarea
+    id: why_now
+    attributes:
+      label: Why now
+      description: What makes this more important than the stories already in Ready?
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: What this story deliberately does not cover.
